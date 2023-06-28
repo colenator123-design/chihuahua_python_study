@@ -1,1 +1,148 @@
 
+物件導向:
+物件導向（Object-Oriented Programming，簡稱OOP）是一種常用的程式設計範式，它將程式組織成相關的「物件」，並通過這些物件之間的互動和通信來解決問題。以下是物件導向的基本概念：
+1.	類（Class）：類是物件的藍圖或模板，描述了物件的屬性和行為。它定義了物件的結構和行為的集合。
+2.	物件（Object）：物件是類的實例，代表具體的實體。物件有自己的狀態（屬性）和行為（方法）。
+3.	封裝（Encapsulation）：封裝是一種將數據和相關的方法封裝在一起的機制，以保護數據的完整性和安全性。通過封裝，物件將其內部細節隱藏起來，只對外部提供必要的接口。
+4.	繼承（Inheritance）：繼承是一種通過定義新類來重用現有類的屬性和方法的機制。子類（派生類）可以繼承父類（基類）的特性，同時還可以添加自己的特定功能。
+5.	多態（Polymorphism）：多態是一種允許使用相同的接口來操作不同類型對象的概念。它允許我們使用一個通用的接口來處理不同類型的物件，而不需要依賴具體的類型。
+下面是一個簡單的範例程式碼，展示了物件導向的概念：
+# 定義一個狗類
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):
+        print(f"{self.name}正在汪汪叫！")
+
+# 創建狗的實例
+my_dog = Dog("小黑")
+my_dog.bark()  # 輸出：小黑正在汪汪叫！
+
+# 定義一個貓類，繼承自動物類
+class Cat:
+    def __init__(self, name):
+        self.name = name
+
+    def meow(self):
+        print(f"{self.name}正在喵喵叫！")
+
+# 創建貓的實例
+my_cat = Cat("小白")
+my_cat.meow()  # 輸出：小白正在喵喵叫！
+
+# 定義一個動物類
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        pass
+
+# 定義一個狗類，繼承自動物類
+class Dog(Animal):
+    def make_sound(self):
+        return "汪汪！"
+
+# 定義一個貓類，繼承自動物類
+class Cat(Animal):
+    def make_sound(self):
+        return "喵喵！"
+
+# 創建動物實例
+dog = Dog("小狗")
+cat = Cat("小貓")
+
+# 使用多態性操作不同類型的動物
+animals = [dog, cat]
+for animal in animals:
+    print(animal.name + ": " + animal.make_sound())
+
+
+# 定義動物類
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        pass
+
+# 定義狗類，繼承自動物類
+class Dog(Animal):
+    def make_sound(self):
+        return "汪汪！"
+
+# 定義貓類，繼承自動物類
+class Cat(Animal):
+    def make_sound(self):
+        return "喵喵！"
+
+# 定義動物園類
+class Zoo:
+    def __init__(self):
+        self.animals = []
+
+    def add_animal(self, animal):
+        self.animals.append(animal)
+
+    def show_animals(self):
+        for animal in self.animals:
+            print(animal.name + ": " + animal.make_sound())
+
+# 創建動物園實例
+zoo = Zoo()
+
+# 創建動物實例
+dog = Dog("小狗")
+cat = Cat("小貓")
+
+# 將動物加入動物園
+zoo.add_animal(dog)
+zoo.add_animal(cat)
+
+# 顯示動物園的動物
+zoo.show_animals()
+
+
+
+
+URL (Uniform Resource Locator) 是一種統一資源定位符，用於在網際網路上唯一標識和定位資源。它是一個字符串，用於描述網路上的資源的位置和訪問方式。
+URL由多個部分組成，包括協議（protocol），主機名（hostname），端口（port），路徑（path），查詢字符串（query string）和片段（fragment）等。
+以下是一個URL的結構示例：
+http://www.example.com:8080/path/to/resource?param1=value1&param2=value2#fragment
+•	協議（protocol）：通信協議的類型，常見的有HTTP、HTTPS、FTP等。
+•	主機名（hostname）：指定資源所在的主機名或域名。
+•	端口（port）：用於指定連接到主機時使用的端口號，某些協議有默認的端口號，例如HTTP的默認端口是80。
+•	路徑（path）：指定資源在主機上的位置，用於定位具體的文件或目錄。
+•	查詢字符串（query string）：包含在URL中的參數和值，用於向資源傳遞附加的參數信息，多個參數之間使用"&"符號分隔。
+•	片段（fragment）：表示資源中的一個特定片段或位置，常用於指定HTML文檔中的錨點。
+URL的作用是在網際網路上唯一標識和定位資源，可以通過URL來訪問網頁、圖片、文件和其他各種資源。瀏覽器和其他網絡應用程序使用URL來解析並訪問網絡上的資源。在網絡爬蟲、API調用、鏈接分享等場景中，URL扮演著重要的角色。
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36' 是HTTP請求頭（HTTP request header）中的一部分，用於模擬特定的用戶代理（User Agent）。
+當發送HTTP請求時，客戶端（例如瀏覽器或程式碼中的爬蟲）會包含一個用戶代理，該用戶代理向服務器提供有關客戶端的信息，例如操作系統、瀏覽器版本等。服務器可以根據用戶代理來進行不同的處理或回應。
+在該程式碼中，設置了'User-Agent'為一個特定的用戶代理字符串。這個用戶代理字符串模擬了一個基於Windows操作系統、使用Chrome瀏覽器的用戶代理。這樣做的目的是讓爬蟲的請求看起來像是來自一個正常的瀏覽器，以減少被網站擋下的風險。
+通過設置適當的用戶代理，可以模擬不同的用戶代理來獲取不同的響應或繞過一些防護措施。在這個例子中，使用的用戶代理字符串是一個常見的用戶代理，以確保正常的網頁請求和響應。
+請注意，具體的用戶代理字符串可能因不同的用戶代理和瀏覽器版本而有所不同。根據需要，可以使用不同的用戶代理字符串來模擬不同的用戶代理行為。
+
+
+requests.get(url, headers=headers) 是使用 Python 的 requests 模組發送 GET 請求的方法。它接受兩個參數：
+1.	url：要訪問的目標網址。
+2.	headers：一個字典，包含請求中的標頭（headers）信息。
+在這個例子中，使用了自定義的標頭 headers，其中包含了 'User-Agent'，用來模擬特定的用戶代理。這樣做是為了讓請求看起來像是來自正常的瀏覽器，以減少被網站擋下的風險。
+透過 requests.get() 方法，你可以向指定的 URL 發送 GET 請求，並且可以在請求中傳遞一些參數、標頭等信息。該方法會返回一個 Response 物件，你可以使用這個物件來獲取網頁的內容、狀態碼、標頭等信息。
+在這個例子中，response 變數接收了 requests.get() 的返回值，表示從指定 URL 獲取的響應。接下來，程式碼會使用 response 物件進行後續的操作，例如解析 HTML 內容，獲取圖片 URL，下載圖片等。
+需要注意的是，這個程式碼中使用了 headers 參數來傳遞標頭信息，這是為了模擬正常的瀏覽器行為。在實際應用中，你可能需要根據具體的需求自定義或修改標頭信息。
+BeautifulSoup 是一個用於解析 HTML 和 XML 文件的 Python 函式庫。在這個程式碼中，我們使用 BeautifulSoup 來解析 response.text，也就是從網頁響應中獲取的 HTML 內容。
+soup = BeautifulSoup(response.text, 'html.parser') 將 HTML 內容傳遞給 BeautifulSoup，並指定使用 'html.parser' 解析器來解析該內容。解析後，我們可以使用 soup 物件來遍歷和擷取 HTML 中的不同元素和內容。
+image_tags = soup.find_all('img') 通過 soup 物件的 find_all() 方法，我們可以搜索 HTML 中的所有 <img> 標籤。該方法接受一個標籤名稱作為參數，這裡我們傳遞 'img'，表示尋找所有 <img> 標籤。結果將返回一個列表，其中包含所有符合條件的標籤。
+在這個程式碼中，我們使用 BeautifulSoup 解析 HTML，並通過 find_all('img') 找到了所有的圖片標籤。接下來，我們可以遍歷這個列表，獲取每個圖片的 URL 或進行其他操作。
+推薦自學內容
+(1)	python 語法:  https://youtu.be/Ob_LKCLxg2o
+(2)	網路相關(學爬蟲前的必備知識)  https://youtu.be/-tRp1IOlKkI
+   https://youtu.be/xua4Gno7xLo
+(3)	leetcode 程式題庫(可以去那邊寫寫題目練習語法跟邏輯)   https://leetcode.com/
+(4)	學校可以修的相關課程: 
+吳怡潔 跟人工智慧有關的 很水很甜
+蔡銘峰 開的程式設計 但選開給商學院的 除非你想來資科系修
+蔡炎龍 成為python數據達人甚麼的 跟 深度學習甚麼的 是一學分 可以在家裡爽的那個  數學軟體應用 我自己沒修過 但我同學滿推的
+
+
